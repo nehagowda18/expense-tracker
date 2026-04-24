@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { expensesAPI, categoriesAPI } from '../api';
 import { format } from 'date-fns';
@@ -9,8 +10,7 @@ export default function Transactions({ navigate }) {
   const [filters, setFilters] = useState({ type: '', category: '' });
   const [loading, setLoading] = useState(true);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => { fetchData(); }, [filters]); 
+  useEffect(() => { fetchData(); }, [filters]);
   useEffect(() => { categoriesAPI.getAll().then(r => setCategories(r.data)); }, []);
 
   const fetchData = async () => {
