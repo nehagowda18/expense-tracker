@@ -9,7 +9,8 @@ export default function Transactions({ navigate }) {
   const [filters, setFilters] = useState({ type: '', category: '' });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { fetchData(); }, [filters]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { fetchData(); }, [filters]); 
   useEffect(() => { categoriesAPI.getAll().then(r => setCategories(r.data)); }, []);
 
   const fetchData = async () => {
